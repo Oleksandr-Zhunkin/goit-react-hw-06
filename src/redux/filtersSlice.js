@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialState } from "./contactsSlice";
 
+const initialState = {
+  contacts: {
+    items: [],
+  },
+  filters: {
+    name: "",
+  },
+};
 const filtersSlice = createSlice({
   name: "filters",
-  initialState: initialState,
+  initialState,
   selectors: { selectNameFilter: (state) => state.filters.name },
   reducers: {
     changeFilterValue(state, action) {
