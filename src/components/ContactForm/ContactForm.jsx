@@ -2,10 +2,21 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import s from "../ContactForm/ContactForm.module.scss";
 import { useId } from "react";
 import { contactSchema } from "../../schema/contactSchema";
+import { useDispatch, useSelector } from "react-redux";
+import { addContact, selectContacts } from "../../redux/contactsSlice";
 
-export const ContactForm = ({ handleSubmit, contacts }) => {
+export const ContactForm = () => {
   const nameId = useId();
   const emailId = useId();
+
+  const contacts = useSelector(selectContacts);
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, actions) => {
+    dispatch(addContact(values));
+    actions.resetForm();
+  };
 
   return (
     <Formik

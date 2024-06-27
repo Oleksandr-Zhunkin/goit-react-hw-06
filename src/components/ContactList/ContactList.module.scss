@@ -1,6 +1,6 @@
 .list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin-top: 80px;
   gap: 20px;
